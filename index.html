@@ -31,6 +31,10 @@
             color: yellow;
         }
 
+        .blue {
+            color:blue;
+        }
+
         .texto{
             font-size: 30px; 
         }
@@ -59,7 +63,7 @@
             <div>
                 <h3> RPG Company C.T.H</h3>
 
-                <a href="nova-pagina.html">sistema de  atributos</a>
+                <a href="nova-pagina.html" id="atributos">LINK - sistema de  atributos</a>
 
                 <div>
                     <span class="texto">
@@ -105,8 +109,9 @@
 
     <script type="text/javascript">
 
-        function changeColor(element, _class) {
+        function changeColor(element, _class, _time) {
             var actived = false;
+            var time = _time !== undefined ? _time : 200
 
             setInterval(function () {
                 if (!actived)
@@ -115,23 +120,16 @@
                     element.classList.remove(_class)
 
                 actived = !actived
-            }, 200)
+            }, time)
         }
 
         var title = document.querySelector("#title");
         var link = document.querySelector("#link");
+        var atributos = document.querySelector("#atributos");
 
-
-        changeColor(title, 'red');
-        changeColor(link, 'yellow');
-
-        var d = document.getElementById("apague");
-
-        d.addEventListener("click", function () {
-            b = document.querySelector("body");
-
-            b.parentNode.removeChild(b);
-        })
+        changeColor(title, 'red', 200);
+        changeColor(link, 'yellow', 200);
+        changeColor(atributos, 'blue', 750)
 
     </script>
 </body>
